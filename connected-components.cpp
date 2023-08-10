@@ -22,10 +22,11 @@ int main(){
     }
     dfs(1);
     int cc=0;
-    for(int i=0; i<n; i++){
+    for(int i=0; i<=n; i++){
         if(visited[i]==true) continue;
-        cc++;
         dfs(i);
+        cc++;
+
     }
     cout<<cc<<endl;
     
