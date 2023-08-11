@@ -7,27 +7,27 @@ vector<int>adjList[N];
 
 //visited bool array
 bool visited[N];
+stack<int>myStack;
 
 void bfs(int s){
     queue<int>q;
-    stack<int>myStack;
-    
     q.push(s);
     visited[s]=true;
     while (!q.empty())
     {
         int u=q.front();
         q.pop();
+        myStack.push(u);
         for(int v:adjList[u]){
             if(visited[v]==true) continue;
             q.push(v);
             visited[v]=true;
-            myStack.push(v);
-            cout<<myStack.top()<<" ";
+           
+           
            
         }
         
-        // cout<<u<<" "
+       
     }
     
     
@@ -42,7 +42,12 @@ int main(){
         adjList[u].push_back(v);
         adjList[v].push_back(u);
     }
-    bfs(1);
+        bfs(1);
+    for( int i=0; i<n; i++){
+        cout<<myStack.top()<<" ";
+        myStack.pop();
+    }
+
     
     return 0;
 }
